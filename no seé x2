@@ -1,0 +1,33 @@
+const materias = [
+  { codigo: "ICF101", nombre: "Cálculo I", estado: "pendiente", prerrequisitos: [] },
+  { codigo: "ICF102", nombre: "Álgebra Lineal", estado: "pendiente", prerrequisitos: [] },
+  { codigo: "ICF201", nombre: "Cálculo II", estado: "pendiente", prerrequisitos: ["ICF101"] },
+];
+
+function crearMateria(m) {
+  const div = document.createElement("div");
+  div.className = `materia ${m.estado}`;
+  div.innerHTML = `
+    <h3>${m.nombre} (${m.codigo})</h3>
+    <p>Estado: <strong>${m.estado}</strong></p>
+    <p>Prerrequisitos: ${m.prerrequisitos.join(", ") || "Ninguno"}</p>
+    <button onclick="cambiarEstado('${m.codigo}')">Cambiar Estado</button>
+  `;
+  return div;
+}
+
+function cambiarEstado(codigo) {
+  const m = materias.find(x => x.codigo === codigo);
+  if (m.estado === "pendiente") m.estado = "encurso";
+  else if (m.estado === "encurso") m.estado = "aprobada";
+  else m.estado = "pendiente";
+  renderizarMaterias();
+}
+
+function renderizarMaterias() {
+  const cont = document.getElementById("contenedor");
+  cont.innerHTML = "";
+  materias.forEach(m => cont.appendChild(crearMateria(m)));
+}
+
+renderizarMaterias();
