@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pénsum Ingeniería Civil</title>
+  <script defer src="script.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    .materia { border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 8px; }
+    .aprobada { background-color: #d4f7d4; }
+    .encurso { background-color: #fff6b3; }
+    .pendiente { background-color: #e0e0e0; }
+  </style>
+</head>
+<body>
+  <h1>Pénsum Ingeniería Civil</h1>
+  <div id="contenedor"></div>
+</body>
+</html>
